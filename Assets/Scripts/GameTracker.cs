@@ -23,6 +23,7 @@ public class GameTracker : MonoBehaviour {
         if (zapState == zappingState.COOLDOWN) {
             zapTimer -= Time.deltaTime;
             if (zapTimer <= 0) {
+                GameEvents.endCooldown.Invoke();
                 zapState = zappingState.CAN_ZAP;
             }
         }

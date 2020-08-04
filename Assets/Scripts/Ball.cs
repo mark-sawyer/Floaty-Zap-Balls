@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
     public GameObject otherBall;
+    public Animator anim;
     public Rigidbody2D rb;
     public BallState state;
     public FloatState floating;
@@ -13,6 +14,7 @@ public class Ball : MonoBehaviour {
     private void Start() {
         GameEvents.startZapping.AddListener(transitionToZapping);
         GameEvents.endZapping.AddListener(transitionToFloating);
+        GameEvents.endCooldown.AddListener(endCooldownAnimation);
 
         floating = new FloatState(gameObject);
         zapping = new ZapState(gameObject);
@@ -24,11 +26,18 @@ public class Ball : MonoBehaviour {
     }
 
     private void transitionToZapping() {
+        anim.SetTrigger("changeAnimation");
         zapping.storePriorVelocity(rb.velocity);
         state = zapping;
     }
+
     private void transitionToFloating() {
+        anim.SetTrigger("changeAnimation");
         rb.velocity = zapping.getPriorVelocity();
         state = floating;
+    }
+
+    public void endCooldownAnimation() {
+        anim.SetTrigger("changeAnimation");
     }
 }
