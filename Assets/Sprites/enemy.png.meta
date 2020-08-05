@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: c3f98a35f099daa488f23d364ad5a3ea
+guid: 2dfabccfe9aaba640a2b56222a3ad5ec
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ball 0
-    21300002: ball 1
-    21300004: ball 2
-    21300006: ball 3
-    21300008: ball 4
-    21300010: ball 5
+    21300000: enemy 0
+    21300002: enemy 1
+    21300004: enemy 2
+    21300006: enemy 3
+    21300008: enemy 4
+    21300010: enemy 5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -79,7 +79,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ball 0
+      name: enemy 0
       rect:
         serializedVersion: 2
         x: 0
@@ -93,13 +93,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21b3f111b1a7569429ddc88882820620
+      spriteID: 028d883a00bd6a8439a96588e79e959b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball 1
+      name: enemy 1
       rect:
         serializedVersion: 2
         x: 32
@@ -113,13 +113,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f8e1d537d9a73e4f820308990035631
+      spriteID: 35d994c3e2f38004c8cd8e2c3658f447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball 2
+      name: enemy 2
       rect:
         serializedVersion: 2
         x: 64
@@ -133,13 +133,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd45dc4770c3ae440a872b7fcaae79d4
+      spriteID: 767de86a0d09d3a4ebf72cf5da4ae385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball 3
+      name: enemy 3
       rect:
         serializedVersion: 2
         x: 0
@@ -153,13 +153,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a64e67f20c58e13458db53d833040657
+      spriteID: 7a03ee283ea0407489eb23d3b01237d5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball 4
+      name: enemy 4
       rect:
         serializedVersion: 2
         x: 32
@@ -173,13 +173,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd03de5416c70e24bb75f10b9977910a
+      spriteID: fd2609181b80a1d40a4864a2a1c07166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball 5
+      name: enemy 5
       rect:
         serializedVersion: 2
         x: 64
@@ -193,7 +193,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f4021fd6b6f63b47b9f2654c095a348
+      spriteID: fb30f177cb41e3645b67eeddd4664bb7
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 55ca05b527e38be4286308cd0969d210
+    spriteID: 11ee65c7e51deff4e8821f596e5b5d20
     vertices: []
     indices: 
     edges: []
