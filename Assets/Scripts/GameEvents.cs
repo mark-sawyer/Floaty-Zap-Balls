@@ -7,7 +7,7 @@ public static class GameEvents {
     public static UnityEvent startZapping = new UnityEvent();
     public static UnityEvent endZapping = new UnityEvent();
     public static UnityEvent endCooldown = new UnityEvent();
-    public static UnityEvent hitEnemy = new UnityEvent();
+    public static UnityEvent enemyHitBall = new UnityEvent();
 }
 
 public class GameObjectEvent : UnityEvent<GameObject> { }

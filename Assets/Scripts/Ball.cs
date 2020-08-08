@@ -13,9 +13,9 @@ public class Ball : MonoBehaviour {
 
     private void Start() {
         GameEvents.startZapping.AddListener(transitionToZapping);
-        GameEvents.endZapping.AddListener(transitionToFloating);
+        GameEvents.endZapping.AddListener(postZapTransition);
         GameEvents.endCooldown.AddListener(endCooldownAnimation);
-        GameEvents.hitEnemy.AddListener(enemyHit);
+        GameEvents.enemyHitBall.AddListener(hitByEnemy);
 
         floating = new FloatState(gameObject);
         zapping = new ZapState(gameObject);
@@ -27,29 +27,29 @@ public class Ball : MonoBehaviour {
     }
 
     private void transitionToZapping() {
-        anim.SetTrigger("changeAnimation");
+        anim.SetTrigger("toZapping");
         zapping.storePriorVelocity(rb.velocity);
         state = zapping;
     }
 
-    private void transitionToFloating() {
-        anim.SetTrigger("changeAnimation");
+    private void postZapTransition() {
+        anim.SetTrigger("toCooldown");
         rb.velocity = zapping.getPriorVelocity();
         state = floating;
     }
 
     public void endCooldownAnimation() {
-        anim.SetTrigger("changeAnimation");
+        anim.SetTrigger("toFloating");
     }
 
-    public void enemyHit() {
-        anim.SetTrigger("hitEnemy");
+    public void hitByEnemy() {
+        anim.SetTrigger("toHurt");
     }
 
     public void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "enemy" &
             (GameTracker.zapState == zappingState.CAN_ZAP | GameTracker.zapState == zappingState.COOLDOWN)) {
-            GameEvents.hitEnemy.Invoke();
+            GameEvents.enemyHitBall.Invoke();
         }
     }
 }

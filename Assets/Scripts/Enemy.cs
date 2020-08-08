@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
     void Start() {
         state = EnemyState.CREATING;
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
     }
 
     void Update() {
@@ -39,22 +40,23 @@ public class Enemy : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (state != EnemyState.CREATING) {
-            GameTracker.enemyCount -= 1;
-            if (GameTracker.enemyCount == 0) {
-                GameTracker.createNewEnemy();
-            }
-
-            Destroy(transform.GetChild(0).gameObject);
-            anim.SetTrigger("changeAnimation");
-            rb.velocity = Vector2.zero;
-            timer = 1;
-            state = EnemyState.DYING;
+        GameTracker.enemyCount--;
+        GameTracker.score++;
+        GameTracker.getNewEnemyTimerMultiplier();
+        if (GameTracker.enemyCount == 0) {
+            GameTracker.createNewEnemy();
         }
+
+        Destroy(transform.GetChild(0).gameObject);
+        anim.SetTrigger("changeAnimation");
+        rb.velocity = Vector2.zero;
+        timer = 1;
+        state = EnemyState.DYING;
     }
 
     private void endCreatingAnimation() {
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<CircleCollider2D>().enabled = true;
         direction = Random.Range(0, 2 * Mathf.PI);
         timer = Random.Range(3, 4);
         state = EnemyState.WAITING;

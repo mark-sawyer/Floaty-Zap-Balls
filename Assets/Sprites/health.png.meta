@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: f2f3143632283b54bbb87dad02f451c4
+guid: 88f5dcba52ab69a42837f426143fddff
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wall 0
+    21300000: health 0
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -61,7 +61,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 32
+    maxTextureSize: 16
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -74,13 +74,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wall 0
+      name: health 0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -88,7 +88,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7dc1503d17fbf594ea416abeb8226026
+      spriteID: 0380ed40f327fb44790bc91a30f2ee77
       vertices: []
       indices: 
       edges: []
@@ -96,7 +96,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 67dc5dc4d2d3f064ba11b7a6e622ab22
+    spriteID: c57c1d72098e76a4482425dc5c8538be
     vertices: []
     indices: 
     edges: []
