@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTracker : MonoBehaviour {
     public GameObject zap;
@@ -32,6 +33,11 @@ public class GameTracker : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
+        }
+        if (Input.GetKeyDown("return")) {
+            score = 0;
+            enemyCount = 0;
+            SceneManager.LoadScene("Game Scene");
         }
 
         newEnemyTimer -= Time.deltaTime;

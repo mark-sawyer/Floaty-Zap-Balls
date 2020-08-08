@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreShower : MonoBehaviour {
@@ -14,6 +15,11 @@ public class ScoreShower : MonoBehaviour {
     public void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
+        }
+        if (Input.GetKeyDown("return")) {
+            GameTracker.score = 0;
+            GameTracker.enemyCount = 0;
+            SceneManager.LoadScene("Game Scene");
         }
     }
 }
