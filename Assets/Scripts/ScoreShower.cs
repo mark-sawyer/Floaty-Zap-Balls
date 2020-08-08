@@ -19,6 +19,7 @@ public class ScoreShower : MonoBehaviour {
         if (Input.GetKeyDown("return")) {
             GameTracker.score = 0;
             GameTracker.enemyCount = 0;
+            HealthBar.health = 5;
             SceneManager.LoadScene("Game Scene");
         }
     }

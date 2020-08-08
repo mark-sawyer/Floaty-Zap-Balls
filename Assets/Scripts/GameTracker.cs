@@ -37,6 +37,7 @@ public class GameTracker : MonoBehaviour {
         if (Input.GetKeyDown("return")) {
             score = 0;
             enemyCount = 0;
+            HealthBar.health = 5;
             SceneManager.LoadScene("Game Scene");
         }
 

@@ -10,7 +10,6 @@ public class HealthBar : MonoBehaviour {
     void Start() {
         health = 5;
         GameEvents.enemyHitBall.AddListener(loseHealth);
-        DontDestroyOnLoad(this);
     }
 
     public void loseHealth() {
