@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1264360671619419498}
   m_Layer: 0
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5621254183010060328}
+  state: 0
+  anim: {fileID: 9113331363543659869}
 --- !u!1 &8945816050705448565
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +223,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 97553fdfb51d345458cdf6f4135cfde2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

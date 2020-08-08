@@ -7,13 +7,13 @@ public class Enemy : MonoBehaviour {
     public static float speed = 1;
     public Rigidbody2D rb;
     public EnemyState state;
+    public Animator anim;
     private float direction;
     private float timer;
 
     void Start() {
-        timer = Random.Range(3, 4);
-        direction = Random.Range(0, 2 * Mathf.PI);
-        state = EnemyState.WAITING;
+        state = EnemyState.CREATING;
+        transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void Update() {
@@ -31,13 +31,40 @@ public class Enemy : MonoBehaviour {
                     rb.velocity = new Vector2(Mathf.Cos(direction), Mathf.Sin(direction)) * speed;
                     state = EnemyState.MOVING;
                     break;
+                case EnemyState.DYING:
+                    Destroy(gameObject);
+                    break;
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (state != EnemyState.CREATING) {
+            GameTracker.enemyCount -= 1;
+            if (GameTracker.enemyCount == 0) {
+                GameTracker.createNewEnemy();
+            }
+
+            Destroy(transform.GetChild(0).gameObject);
+            anim.SetTrigger("changeAnimation");
+            rb.velocity = Vector2.zero;
+            timer = 1;
+            state = EnemyState.DYING;
+        }
+    }
+
+    private void endCreatingAnimation() {
+        transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        direction = Random.Range(0, 2 * Mathf.PI);
+        timer = Random.Range(3, 4);
+        state = EnemyState.WAITING;
     }
 }
 
 public enum EnemyState {
+    CREATING,
     MOVING,
-    WAITING
+    WAITING,
+    DYING
 };
 

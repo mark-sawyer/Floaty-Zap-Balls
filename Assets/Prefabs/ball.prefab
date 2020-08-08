@@ -153,4 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherBall: {fileID: 0}
   anim: {fileID: 7053421511940272973}
+  sprite: {fileID: 5647299848617262153}
   rb: {fileID: 1913873467107513801}

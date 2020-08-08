@@ -6,7 +6,6 @@ using UnityEngine;
 public class FloatState : BallState {
     private static float maxVelocity = 5;
     private Vector2 acceleration;
-    private Vector2 velocity;
 
     public FloatState(GameObject ball) : base(ball) { }
 

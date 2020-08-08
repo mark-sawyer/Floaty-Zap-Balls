@@ -24,7 +24,6 @@ public class EnemyEye : MonoBehaviour {
         distance1 = difference1.sqrMagnitude;
         distance2 = difference2.sqrMagnitude;
 
-        print(distance1);
         if (distance1 <= MIN_DISTANCE_TO_LOOK | distance2 <= MIN_DISTANCE_TO_LOOK) {
             if (distance1 < distance2) {
                 differenceVector = difference1.normalized;

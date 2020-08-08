@@ -11,16 +11,20 @@ public class GameTracker : MonoBehaviour {
     public static float ZAPPING_TIME = 1;
     public static float zapTimer = ZAPPING_TIME;
     public static float ZAP_COOLDOWN = 3;
-    public zappingState zapState;
+    public static float HURT_COOLDOWN = 3;
+    public static zappingState zapState;
+    public static int enemyCount;
 
     void Start() {
+        enemyCount = 1;
         GameEvents.startZapping.AddListener(startZapping);
         GameEvents.endZapping.AddListener(endZapping);
+        GameEvents.hitEnemy.AddListener(enemyHit);
         zapState = zappingState.CAN_ZAP;
     }
 
     void Update() {
-        if (zapState == zappingState.COOLDOWN) {
+        if (zapState == zappingState.COOLDOWN | zapState == zappingState.HURT) {
             zapTimer -= Time.deltaTime;
             if (zapTimer <= 0) {
                 GameEvents.endCooldown.Invoke();
@@ -28,7 +32,7 @@ public class GameTracker : MonoBehaviour {
             }
         }
 
-        if (zapState == zappingState.ZAPPING) {
+        else if (zapState == zappingState.ZAPPING) {
             zapTimer -= Time.deltaTime;
             if (zapTimer <= 0) {
                 GameEvents.endZapping.Invoke();
@@ -58,10 +62,20 @@ public class GameTracker : MonoBehaviour {
         zapTimer = ZAP_COOLDOWN;
         Destroy(onScreenZap);
     }
+
+    public void enemyHit() {
+        zapState = zappingState.HURT;
+        zapTimer = HURT_COOLDOWN;
+    }
+
+    public static void createNewEnemy() {
+
+    }
 }
 
 public enum zappingState {
     ZAPPING,
     COOLDOWN,
-    CAN_ZAP
+    CAN_ZAP,
+    HURT
 };
